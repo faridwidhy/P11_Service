@@ -11,7 +11,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
         $array_data[] = $data;
     }
     echo json_encode($array_data);
-}else if($_SERVER['REQUEST_METHOD'] === 'POST'){
+}
+
+else if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $judul_buku = $_POST['judul_buku'];
     $jumlah = $_POST['jumlah'];
     $harga = $_POST['harga'];
@@ -20,7 +22,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     $response = ['status' => $cek ? 'berhasil' : 'gagal'];
     echo json_encode($response);
-}else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
+}
+
+else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
     parse_str(file_get_contents("php://input"), $_DELETE);
     $id = $_DELETE['id'];
     $sql = "DELETE FROM stok_buku WHERE id='$id'";
@@ -28,7 +32,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     $response = ['status' => $cek ? 'berhasil' : 'gagal'];
     echo json_encode($response);
-}else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
+}
+
+else if($_SERVER['REQUEST_METHOD'] === 'PUT'){
     parse_str(file_get_contents("php://input"), $_PUT);
     $id = $_PUT['id'];
     $judul_buku = $_PUT['judul_buku'];
