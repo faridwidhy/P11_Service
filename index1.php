@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // membuat method create
 
@@ -40,4 +41,6 @@ else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
 }
 >>>>>>> aa1776a1cf31471f5fe7ff94cba70d9085289894
 
+=======
+>>>>>>> 26012cde612d6e447498b9c34976894efc09b92e
 ?>
