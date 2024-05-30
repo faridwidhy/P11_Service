@@ -2,11 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("http://localhost/P11_service/index1.php")
     .then((response) => response.json())
     .then((data) => {
-      const bookList = document.getElementById("books");
+      const bookTable = document.querySelector("#books tbody");
+      if (data.status === "gagal") {
+        console.error("Error:", data.pesan);
+        return;
+      }
       data.forEach((book) => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>${book.judul_buku}</strong> - Jumlah: ${book.jumlah} - Harga: ${book.harga}`;
-        bookList.appendChild(li);
+        const row = document.createElement("tr");
+        row.innerHTML = `
+                  <td>${book.id}</td>
+                  <td>${book.judul_buku}</td>
+                  <td>${book.jumlah}</td>
+                  <td>${book.harga}</td>
+              `;
+        bookTable.appendChild(row);
       });
     })
     .catch((error) => console.error("Error:", error));
