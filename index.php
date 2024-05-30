@@ -20,6 +20,7 @@
         if (isset($_GET['id'])) {
             $id = htmlspecialchars($_GET["id"]);
 
+            // method delete dengan menyimpan id terlebih dahulu
             $sql = "DELETE FROM stok_buku WHERE id='$id'";
             $hasil = mysqli_query($koneksi, $sql);
 
