@@ -8,7 +8,7 @@
   </head>
   <body>
     <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Toko Buku Sejahtera</span>
+        <span class="navbar-brand ms-3 mb-0 h1">Toko Buku Sejahtera</span>
     </nav>
     <div class="container">
         <br>
