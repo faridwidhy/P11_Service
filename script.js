@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("xampp/htdocs/P11_service/index1.php")
+  fetch("http://localhost/P11_service/index1.php")
     .then((response) => response.json())
     .then((data) => {
       const bookList = document.getElementById("books");
