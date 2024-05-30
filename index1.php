@@ -14,8 +14,6 @@ if($_SERVER['REQUEST_METHOD'] === 'GET'){
     echo json_encode($array_data);
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 // membuat method create
 
 else if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -38,9 +36,5 @@ else if($_SERVER['REQUEST_METHOD'] === 'DELETE'){
     $response = ['status' => $cek ? 'berhasil' : 'gagal'];
     echo json_encode($response);
 }
-=======
->>>>>>> 266c830105bf21748952a04ebc014b702534e76c
-=======
->>>>>>> 266c830105bf21748952a04ebc014b702534e76c
 
 ?>
