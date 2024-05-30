@@ -1,4 +1,5 @@
 <?php
+// membuat method get dan menghubungkan ke database
 header('Content-Type: application/json; charset=utf8');
 
 $koneksi = mysqli_connect("localhost", "root", "", "toko_buku");
