@@ -34,6 +34,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
         echo "Error: " . mysqli_error($koneksi);
     }
 }
+
+// Proses hapus data
+if (isset($_GET['delete_id'])) {
+    $id = $_GET['delete_id'];
+
+    // Query untuk hapus data
+    $sql = "DELETE FROM stok_buku WHERE id = ?";
+    $stmt = mysqli_prepare($koneksi, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+
+    if (mysqli_stmt_execute($stmt)) {
+        // Redirect kembali ke halaman admin setelah berhasil menghapus data
+        header("location: admin_dashboard.php");
+        exit();
+    } else {
+        echo "Error: " . mysqli_error($koneksi);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
                             <td><?php echo "Rp " . number_format($data["harga"], 0, ",", "."); ?></td>
                             <td>
                                 <a href="update.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Update</a>
-                                <a href="admin_dashboard.php?id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm">Hapus</a>
+                                <a href="admin_dashboard.php?delete_id=<?php echo $data['id']; ?>" class="btn btn-danger btn-sm">Hapus</a>
                             </td>
                         </tr>
                         <?php
