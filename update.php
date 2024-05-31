@@ -41,7 +41,8 @@
             $hasil = mysqli_query($koneksi, $sql);
 
             if ($hasil) {
-                header("Location: index.php");
+                header("Location: admin_dashboard.php");
+                exit(); // Ensure no further code is executed after redirect
             } else {
                 echo "<div class='alert alert-danger'>Data Gagal Disimpan</div>";
             }
@@ -53,18 +54,18 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group mb-3">
                 <label for="judul_buku">Judul Buku</label>
-                <input type="text" name="judul_buku" class="form-control" placeholder="Masukan Judul Buku" value="<?php echo $data['judul_buku']; ?>" required>
+                <input type="text" name="judul_buku" class="form-control" placeholder="Masukan Judul Buku" value="<?php echo isset($data['judul_buku']) ? $data['judul_buku'] : ''; ?>" required>
             </div>
             <div class="form-group mb-3">
                 <label for="jumlah">Jumlah</label>
-                <input type="number" name="jumlah" class="form-control" placeholder="Masukan Jumlah Buku" value="<?php echo $data['jumlah']; ?>" required>
+                <input type="number" name="jumlah" class="form-control" placeholder="Masukan Jumlah Buku" value="<?php echo isset($data['jumlah']) ? $data['jumlah'] : ''; ?>" required>
             </div>
             <div class="form-group mb-3">
                 <label for="harga">Harga</label>
-                <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Buku" value="<?php echo $data['harga']; ?>" required>
+                <input type="number" name="harga" class="form-control" placeholder="Masukan Harga Buku" value="<?php echo isset($data['harga']) ? $data['harga'] : ''; ?>" required>
             </div>
 
-            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo isset($data['id']) ? $data['id'] : ''; ?>">
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
