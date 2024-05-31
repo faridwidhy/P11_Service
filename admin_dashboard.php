@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
             </form>
         </div>
     </nav>
-    <div class="container">
+    <div class="container mb-4">
         <h4>Stok Toko Buku Sejahtera</h4>
         <table class="table table-bordered">
             <thead>
